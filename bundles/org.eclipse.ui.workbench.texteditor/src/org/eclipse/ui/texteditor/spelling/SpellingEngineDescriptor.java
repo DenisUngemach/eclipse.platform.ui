@@ -103,6 +103,7 @@ public class SpellingEngineDescriptor {
 	 * @throws CoreException if the creation failed
 	 */
 	public ISpellingEngine createEngine() throws CoreException {
+// Here the spelling engine can be modified...
 		return (ISpellingEngine)fConfiguration.createExecutableExtension(CLASS_ATTRIBUTE);
 	}
 

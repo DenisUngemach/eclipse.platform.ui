@@ -23,7 +23,9 @@ import org.osgi.framework.BundleContext;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.IRegistryChangeEvent;
 import org.eclipse.core.runtime.IRegistryChangeListener;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.Status;
 
 import org.eclipse.jface.action.IAction;
 
@@ -284,4 +286,13 @@ public final class TextEditorPlugin extends AbstractUIPlugin implements IRegistr
 	public static enum TraversalDirection {
 		NONE, BACKWARD, FORWARD;
 	}
+
+	public static void log(Throwable e) {
+		log(new Status(IStatus.ERROR, PLUGIN_ID, e.getMessage(), e));
+	}
+
+	public static void log(IStatus status) {
+		getDefault().getLog().log(status);
+	}
+
 }
